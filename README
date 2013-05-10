@@ -1,0 +1,39 @@
+# li3_htmlpurifier
+
+
+## NOTE
+
+Some one has been [created one](https://github.com/harikt/li3_htmlpurifier) before but it has been deleted current.
+
+These codes in my local machine also have not .git directory so I don't remember it's origin version from @harikt or not.
+
+For this version of li3_htmlpurifier, I added a script `sync.sh` download HTMLPurifier automated. Nest sub-module is quirk, and in my team `git-archive-all` not works well (same commands by two people will got different result) so I do not use git-module here.
+
+
+## Usage
+
+Libraries::add('li3_htmlpurifier');
+
+Download the htmlpurifier library from htmlpurifier.org
+Keep the all files of HTMLPurifier library inside li3_htmlpurifier/libraries/HTMLPurifier/
+Sample file path will be li3_htmlpurifier/libraries/HTMLPurifier/HTMLPurifier.auto.php
+
+Usage :
+
+```
+use \HTMLPurifier
+$purifier = new HTMLPurifier();
+$clean_html = $purifier->purify( $dirty_html );
+```
+
+If you need to pass $config import HTMLPurifier_Config like below
+
+```
+use \HTMLPurifier;
+use \HTMLPurifier_Config;
+
+$config = HTMLPurifier_Config::createDefault();
+//set configuration options
+$purifier = new HTMLPurifier($config);
+$clean_html = $purifier->purify( $dirty_html );
+```
